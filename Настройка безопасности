@@ -1,24 +1,24 @@
 Switch>enable
 Switch#configure terminal
-#pass1 - пароль для получения привилегированного доступа
+#pass1 - РїР°СЂРѕР»СЊ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РїСЂРёРІРёР»РµРіРёСЂРѕРІР°РЅРЅРѕРіРѕ РґРѕСЃС‚СѓРїР°
 Switch(config)#enable secret pass1
-#host - "имя" коммутатора
+#host - "РёРјСЏ" РєРѕРјРјСѓС‚Р°С‚РѕСЂР°
 Switch(config)#hostname host
 host(config)#line console 0
-#pass2 - пароль для консольного подключения
+#pass2 - РїР°СЂРѕР»СЊ РґР»СЏ РєРѕРЅСЃРѕР»СЊРЅРѕРіРѕ РїРѕРґРєР»СЋС‡РµРЅРёСЏ
 host(config-line)#password pass2
 host(config-line)#login
 host(config-line)#exit
 host(config)#line vty 0 15
 host(config-line)#login local
-#разрешение доступа через SSH
+#СЂР°Р·СЂРµС€РµРЅРёРµ РґРѕСЃС‚СѓРїР° С‡РµСЂРµР· SSH
 host(config-line)#transport input telnet ssh
 host(config-line)#exit
-#user, pass - логин, пароль клиента SSH
+#user, pass - Р»РѕРіРёРЅ, РїР°СЂРѕР»СЊ РєР»РёРµРЅС‚Р° SSH
 host(config)#username user password pass3
-#example.com - имя домена
+#example.com - РёРјСЏ РґРѕРјРµРЅР°
 host(config)#ip domain-name example.com
-#генерация rsa ключа
+#РіРµРЅРµСЂР°С†РёСЏ rsa РєР»СЋС‡Р°
 host(config)#crypto key generate rsa
 
 
