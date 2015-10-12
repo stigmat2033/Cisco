@@ -1,0 +1,17 @@
+Switch>enable
+Switch#configure terminal
+Switch(config)#enable secret pass1
+Switch(config)#hostname host
+host(config)#line console 0
+host(config-line)#password pass2
+host(config-line)#login
+host(config-line)#exit
+host(config)#line vty 0 15
+host(config-line)#password pass3
+host(config-line)#login
+host(config-line)#exit
+
+pass1 - пароль для привилегированного доступа
+host - "имя" коммутатора
+pass2 - пароль для консольного подключения
+pass3 - пароль для подключения к виртуальной консоли
