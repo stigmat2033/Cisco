@@ -1,0 +1,11 @@
+host#configure terminal
+host(config)#line vty 0 15
+host(config-line)#login local
+host(config-line)#transport input telnet ssh
+host(config-line)#exit
+host(config)#username user password pass
+host(config)#ip domain-name example.com
+host(config)#crypto key generate rsa
+
+user, pass - имя пользователя и пароль
+example.com - имя домена
