@@ -12,7 +12,7 @@ host(config-line)#exit
 host(config)#line vty 0 15
 host(config-line)#login local
 #разрешение доступа через SSH
-host(config-line)#transport input telnet ssh
+host(config-line)#transport input all
 host(config-line)#exit
 #user, pass - логин, пароль клиента SSH
 host(config)#username user password pass3
