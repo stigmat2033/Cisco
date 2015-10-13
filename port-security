@@ -1,0 +1,14 @@
+#чтобы включить port-security нужно чтобы порт стоял в access моде!
+switch#configure terminal
+#Настраивать будем 1 порт fastEthernet 1 
+switch(config)#interfase fastEthernet 0/1
+#Переводим порт в access мод
+switch(config-if)#switchport mode access
+#Включаем port security
+switch(config-if)#switchport port-security
+#Указываем, что делать при нарушении безопасности
+switch(config-if)#switchport port-security violation restrict
+#Сколько всего разрешено MAC-адресов на этом порте
+switch(config-if)#switchport port-security maximum 1
+#port security "приклеится" к MAC-адресу, от котороко придёт фрейм (внесёт его в список разрешённых MAC-адресов)
+switch(config-if)#switchport port-security mac-address sticky
