@@ -20,5 +20,11 @@ host(config)#username user password pass3
 host(config)#ip domain-name example.com
 #генерация rsa ключа
 host(config)#crypto key generate rsa
-
+host#configure terminal
+host(config)#interface vlan1
+#ip-address, netmask - ip адрес и маска подсети соответственно
+host(config-if)#ip address ip-address netmask
+host(config-if)#no shutdown
+host(config-if)#exit
+host(config)#ip default-gateway ip
 
