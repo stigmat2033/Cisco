@@ -1,0 +1,11 @@
+switch#configure terminal
+#Создаём vlan
+switch(config)#vlan 11
+#Задаём имя созданному vlan`у
+switch(config-vlan)#name pc1
+switch(config-vlan)#exit
+switch(config)#interface fastEthernet 0/1
+#Переводи порт в access мод
+switch(config-if)#switchport mode access 
+#Связываем интерфейс с vlan
+switch(config-if)#switchport access vlan 11
