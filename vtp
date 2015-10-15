@@ -1,0 +1,22 @@
+#Настройка VTP сервера
+switch#configure terminal
+#Переключаем VTP в режим сервера
+switch(config)#vtp mode server
+#Указываем домен
+switch(config)#vtp domain test.domain.ru
+#Указываем пароль к домену
+switch(config)#vtp password 123
+#Указываем версию VTP
+switch(config)#vtp version 2
+#Настройка VTP клиента
+switch#configure terminal
+#Переключаем VTP в режим клиента
+switch(config)#vtp mode client
+#Уазываем домен
+switch(config)#vtp domain test.domain.ru
+#Указываем пароль к домену
+switch(config)#vtp password 123
+#Настройка "прозрачного" VTP
+switch#configure terminal
+#Указываем прозрачный режим для VTP
+switch(config)#vtp mode transparent
