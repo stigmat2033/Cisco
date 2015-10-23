@@ -12,7 +12,7 @@ host(config-line)#exit
 host(config)#line vty 0 15
 host(config-line)#login local
 #разрешение доступа через SSH
-host(config-line)#transport input all
+host(config-line)#transport input ssh
 host(config-line)#exit
 #user, pass - логин, пароль клиента SSH
 host(config)#username user password pass3
@@ -21,7 +21,7 @@ host(config)#ip domain-name example.com
 #генерация rsa ключа
 host(config)#crypto key generate rsa
 host#configure terminal
-host(config)#interface vlan1
+host(config)#interface vlan 1
 #ip-address, netmask - ip адрес и маска подсети соответственно
 host(config-if)#ip address ip-address netmask
 host(config-if)#no shutdown
