@@ -1,12 +1,19 @@
 Switch>enable
 Switch#configure terminal
+#Протокол STP будет работать в режиме RSTP
 Switch(config)#spanning-tree mode rapid-pvst
+#Включем по умолчанию portfast на всех портах
 Switch(config)#spanning-tree portfast default
+#Делаем коммутатор в vlan 1 рутом
 Switch(config)#spanning-tree vlan 1 root primary
-or
+#Или задаём его приоритет
 Switch(config)#spanning-tree vlan 1 priority 0
+#Настраиваем клиентские порты
 Switch(config)#interface range fastEthernet 0/1-24
+#Включаем bpduguard на всех клиентских портах
 Switch(config-if-range)#spanning-tree bpduguard enable
 Switch(config-if-range)#exit
+#Настраиваем магистральные порты
 Switch(config)#interface range gigabitEthernet 0/1-2
+#Выключаем на них portfast
 Switch(config-if-range)#spanning-tree portfast disable
