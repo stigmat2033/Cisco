@@ -1,0 +1,5 @@
+Router>enable
+Router#configure terminal
+Router(config)#router rip
+Router(config-router)#version 2
+Router(config-router)#network 192.168.1.0
