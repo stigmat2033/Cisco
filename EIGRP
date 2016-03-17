@@ -1,0 +1,12 @@
+Router>enable
+Router#configure terminal
+Router(config)#key chain kyes
+Router(config-keychain)#key 1
+Router(config-keychain-key)#key-string password
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 192.168.1.1 255.255.255.0
+Router(config-if)#ip authentication mode eigrp 1
+Router(config-if)#ip authentication key-chain eigrp 1 keys
+Router(config-if)#exit
+Router(config)#router eigrp 1
+Router(config-router)#network 192.168.1.1 0.0.0.0
