@@ -1,0 +1,14 @@
+Router>enable
+Router#configure terminal
+Router(config)#router rip
+Router(config-router)#redistribute ospf 1 metric 1
+Router(config-router)#redistribute eigrp 1 metric 1
+Router(config-router)#exit
+Router(config)#router ospf 1
+Router(config-router)#redistribute rip metric 1500
+Router(config-router)#redistribute eigrp 1 metric 1500
+Router(config-router)#exit
+Router(config)#router eigrp 1
+Router(config-router)#redistribute rip metric 1500 100 255 1 1500
+Router(config-router)#redistribute ospf 1 metric 1500 100 255 1 1500
+Router(config-router)#exit
